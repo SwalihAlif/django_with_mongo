@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Post</button>
+    </form>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }} - {{ post.content }} ({{ post.created_at }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
